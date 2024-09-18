@@ -18,6 +18,7 @@ class Api::V1::PostController < ApplicationController
     render json: @post
   end
 
+  
   def update
     if @post.update(post_params)
       render json: @post
