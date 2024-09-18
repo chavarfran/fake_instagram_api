@@ -42,3 +42,4 @@ end
 
 gem "dotenv-rails"
 
+gem 'active_model_serializers'
