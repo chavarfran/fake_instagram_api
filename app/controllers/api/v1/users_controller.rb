@@ -1,6 +1,8 @@
 module Api
   module V1
     class UsersController < ApplicationController
+      before_action :set_user, only: %i[update show]
+
       def index
         @users = User.all
         render json: @users
@@ -17,9 +19,15 @@ module Api
       end
 
       def show
+        render json: @user
       end
 
       def update
+        if @user.update(user_params)
+          render json: @user
+        else
+          render json: @user.errors, status: :unprocessable_entity
+        end
       end
 
       def destroy
@@ -28,6 +36,10 @@ module Api
       private
       def user_params
         params.require(:user).permit(:name, :lastname, :username, :email)
+      end
+
+      def set_user
+        @user = User.find_by(id: params[:id])
       end
     end
   end
