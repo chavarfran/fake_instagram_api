@@ -40,8 +40,8 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 end
 
-gem 'dotenv-rails'
+gem "dotenv-rails"
 
-gem 'active_model_serializers'
+gem "active_model_serializers"
 
-gem 'importmap-rails'
+gem "importmap-rails"
